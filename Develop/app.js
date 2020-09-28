@@ -56,7 +56,7 @@ async function init() {
                 },
                 {
                     type: "input",
-                    message: `Enter the following number:(${i}). (This will assign the employee an ID number.)`,
+                    message: `Enter the following Employee ID number:(${i})`,
                     name: "id"
                 },
                 {
@@ -92,7 +92,7 @@ async function init() {
                     }])
                     .then((data) => {
 
-                        // Create a new object with all avaiable user input data
+                        // Create a new object with all available user input data
                         const manager = new Manager(name, id, email, data.officeNumber);
 
                         // Reads and places HTML from manager.html in teamMemever Variable
