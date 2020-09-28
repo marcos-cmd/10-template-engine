@@ -83,7 +83,7 @@ async function init() {
                 // ask user of Manager's Office Number
                 await inquirer.prompt([{
                         type: "input",
-                        message: "What is your Manager's Office room Number?",
+                        message: "What is your Manager's Office Number?",
                         name: "officeNumber"
                     }])
                     .then((data) => {
