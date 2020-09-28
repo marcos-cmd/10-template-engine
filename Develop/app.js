@@ -84,15 +84,15 @@ async function init() {
                 await inquirer.prompt([{
                         type: "input",
                         message: "What is your Manager's Office room Number?",
-                        name: "roomNum"
+                        name: "officeNumber"
                     }])
                     .then((data) => {
 
                         // Create a new object with all avaiable user input data
-                        const manager = new Manager(name, id, email, data.roomNum);
+                        const manager = new Manager(name, id, email, data.officeNumber);
 
                         // Reads and places HTML from manager.html in teamMemever Variable
-                        teamMember = fs.readFileSync("templates/manager.html");
+                        teamMember = fs.readFileSync("./templates/manager.html");
 
                         // Uses eval() to pass template literals from html files.
                         // Adds the string to the team HTML.
@@ -105,11 +105,11 @@ async function init() {
                 await inquirer.prompt([{
                         type: "input",
                         message: "Which college does your Intern attend?",
-                        name: "college"
+                        name: "school"
                     }])
                     .then((data) => {
-                        const intern = new Intern(name, id, email, data.college);
-                        teamMember = fs.readFileSync("templates/intern.html");
+                        const intern = new Intern(name, id, email, data.school);
+                        teamMember = fs.readFileSync("./templates/intern.html");
                         teamHTML = teamHTML + "\n" + eval('`' + teamMember + '`');
                     });
                 break;
@@ -123,7 +123,7 @@ async function init() {
                     }])
                     .then((data) => {
                         const engineer = new Engineer(name, id, email, data.github);
-                        teamMember = fs.readFileSync("templates/engineer.html");
+                        teamMember = fs.readFileSync("./templates/engineer.html");
                         teamHTML = teamHTML + "\n" + eval('`' + teamMember + '`');
                     });
                 break;
@@ -133,7 +133,7 @@ async function init() {
     } // End of For loop
 
     // Reads main.html and places html in a variable
-    const mainHTML = fs.readFileSync("templates/main.html");
+    const mainHTML = fs.readFileSync("./templates/main.html");
 
     // Use eval to implement template literals in main.html and places teamHTML inside main template
     teamHTML = eval('`' + mainHTML + '`');
@@ -149,6 +149,6 @@ async function init() {
 
     });
 
-    // console.log(teamHTML);
+    console.log(teamHTML);
 }
 init();
