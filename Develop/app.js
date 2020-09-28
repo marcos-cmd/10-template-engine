@@ -143,7 +143,7 @@ async function init() {
     teamHTML = eval('`' + mainHTML + '`');
 
     // write file to new team.html file
-    fs.writeFile("output/team.html", teamHTML, function(err) {
+    fs.writeFile("../output/team.html", teamHTML, function(err) {
 
         if (err) {
             return console.log(err);
