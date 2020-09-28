@@ -7,6 +7,10 @@ const fs = require("fs");
 const render = require("./lib/htmlRenderer");
 
 // ===== INIT FUNCTION ===== 
+process.on('unhandledRejection', error => {
+    console.log(error, error.message);
+});
+
 async function init() {
     console.log("Please prepare your team members information.");
 
@@ -149,6 +153,6 @@ async function init() {
 
     });
 
-    console.log(teamHTML);
+    // console.log(teamHTML);
 }
 init();
